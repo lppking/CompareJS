@@ -1,34 +1,23 @@
 {
   "name": "comparejs",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "一个用于比较对象或者数组结构的工具库",
-  "main": "dist/compare.js",
   "module": "src/index.js",
   "author": "lipengpeng",
   "scripts": {
-    "test": "jest --coverage --no-cache && tsc -p test/ts",
-    "build": "npm run bundle && npm run minify",
-    "bundle": "rollup -i src/index.js -o dist/compare.js -m -f umd -n $cm",
-    "minify": "uglifyjs dist/compare.js -o dist/compare.js -mc pure_funcs=Object.defineProperty --source-map includeSources,url=compare.js.map",
-    "prepare": "npm run build",
-    "release": "npm run build && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lppking/CompareJS.git"
   },
-  "keywords": [
-    "compare"
-  ],
+  "bugs": {
+    "url": "https://github.com/lppking/event-tower/issues"
+  },
   "license": "MIT",
   "homepage": "https://github.com/lppking/CompareJS#readme",
-  "babel": {
-    "presets": "env"
-  },
   "devDependencies": {
-    "babel-preset-env": "^1.6.1",
-    "jest": "^22.0.4",
-    "rollup": "^0.53.0",
-    "uglify-js": "3.2.2"
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
