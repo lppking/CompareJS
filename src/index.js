@@ -6,7 +6,7 @@ import {compareArray} from './core/array'
 import {compareBool} from './core/boolean'
 import {compareObject} from './core/object'
 
-export function compare (tpl, target, deep) {
+export default function compare (tpl, target, deep) {
   const targetType = getType(target);
   const tplType = getType(tpl);
   // 不处理undefined、function、null、NaN
