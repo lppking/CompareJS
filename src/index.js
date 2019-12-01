@@ -6,6 +6,16 @@ import {compareArray} from './core/array'
 import {compareBool} from './core/boolean'
 import {compareObject} from './core/object'
 
+const $cm = new Compare();
+
+bindAPI(Compare, {
+  'array': compareArray.bind($cm),
+  'object': compareObject.bind($cm),
+  'string': compareString.bind($cm),
+  'number': compareNumber.bind($cm),
+  'boolean': compareBool.bind($cm)
+});
+
 export default function compare (tpl, target, deep) {
   const targetType = getType(target);
   const tplType = getType(tpl);
@@ -24,17 +34,7 @@ export default function compare (tpl, target, deep) {
     return false;
   }
 
-  const $cm = new Compare();
-  
-  bindAPI(Compare, {
-    'array': compareArray,
-    'object': compareObject,
-    'string': compareString,
-    'number': compareNumber,
-    'boolean': compareBool
-  });
-
-  return $cm[tplType]($cm, {
+  return $cm[tplType]({
     tpl,
     target,
     tplType,

@@ -1,6 +1,6 @@
 import {getType} from '../util/index'
 
-function compareString ($cm, {tpl, target}) {
+function compareString ({tpl, target}) {
   return getType(tpl) === getType(target);
 }
 
